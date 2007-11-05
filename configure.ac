@@ -7,6 +7,10 @@ AC_CONFIG_AUX_DIR(config)
 AM_CONFIG_HEADER(config.h)
 AM_INIT_AUTOMAKE([dist-bzip2])
 
+CPPFLAGS="-I${includedir}"
+LDFLAGS="-L${libdir}"
+LIBS="-L${libdir} ${LIBS}"
+
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_INSTALL
