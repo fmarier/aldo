@@ -1,3 +1,20 @@
+2007-11-05 10:00 Giuseppe Martino <denever@users.sourceforge.net>
+
+	* Released aldo 0.7.5
+	
+2007-11-05 09:53  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* configure.ac: Committed Diane VA3DB's patch
+
+2007-10-03 19:54  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/audioworkspace.cc: Committed Diane VA3DB's patch
+
+2007-08-19 15:36  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/: blocks.cc, keyer.cc, koch.cc, setup.cc, wave.cc: Removed
+	  unused #include <iostream>
+
 2007-07-01 09:25  Giuseppe Martino <denever@users.sourceforge.net>
 
 	* THANKS, src/audioworkspace.cc: Committed Jan-Simon Möller's
