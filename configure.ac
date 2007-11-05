@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.59)
-AC_INIT([aldo], [0.7.4], [Giuseppe Martino denever@users.sf.net])
+AC_INIT([aldo], [0.7.5], [Giuseppe Martino denever@users.sf.net])
 AC_CONFIG_AUX_DIR(config)
 AM_CONFIG_HEADER(config.h)
 AM_INIT_AUTOMAKE([dist-bzip2])
