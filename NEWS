@@ -1,0 +1,106 @@
+0.7.0	Thu 04 2005 Giuseppe Martino <denever@users.sourceforge.net>
+	Aldo uses libao.
+	Removed readline use.
+	Removed soundcard configuration.
+	Many bugs and memory leaks fixed.
+
+0.6.11	Mon 12 Sep 2005 Giuseppe Martino <denever@users.sourceforge.net>
+	Fixed autoconf and automake support
+	
+0.6.10	Mon 12 Sep 2005 Giuseppe Martino <denever@users.sourceforge.net>
+	Version burned
+	
+0.6.9	Mon 12 Sep 2005 Giuseppe Martino <denever@users.sourceforge.net>
+	Version burned
+
+0.6.8   
+	Sat 3 Sep 2005 Bob Harrington <rharring@iee.org>
+	Added autoconf and automake support
+	Improved random number generator
+	
+	Wed 7 Sep 2005 Giuseppe Martino <denever@users.sourceforge.net>
+	Fixed some bugs in libmenu
+	Improved libmenu to use config.h
+
+0.6.7	Wed 23 Feb 2005 Thomas Herlea <thomas.herlea@gmail.com>
+	Added exercise feedback about copying success per symbol.
+	Added exercise feedback about positions of copy mistakes.
+	In Setup, added hint about current parameter value to the input
+	prompt for all, except the skill parameters.
+	In Setup prompts, pressing Enter keeps the current parameter value.
+	Made Koch method parameters controllable through Setup.
+	Made difficulty parameters of Koch method persistent.
+
+0.6.6	Sun 8 Aug 2004 Giuseppe Martino <denever@users.sourceforge.net>
+	Readline support
+	
+0.6.5	Wed 20 Apr 2004 Giuseppe Martino <denever@users.sourceforge.net>
+	Fixed a bug in Koch Method Setup
+	Fixed for runnig with gcc 3.4.0
+	
+0.6.4	Wed 17 Mar 2004 Scott Lambert KC5MLE
+	Makefile with PREFIX
+	FreeBSD port
+	
+0.6.3	Sun 30 Gen 2004	Tom Mortell
+	fixed the '9' bug
+	
+0.6.2	Tue 25 Nov 2003 Arlo Gittings KC0MNN
+	Rewriting of README
+	Restringing of resources.h 
+	
+0.6.2   Tue 21 Nov 2003 Giuseppe Martino <denever@users.sourceforge.net>
+	Code clean-up
+		
+0.6.1	Thu 20 Nov 2003 Giuseppe Martino <denever@users.sourceforge.net>
+	Code Clean-up 21K to 18K
+	Leaved i8n
+	
+0.6.0	Tue 28 Oct 2003 Giuseppe Martino <denever@users.sourceforge.net>
+	New random string generator
+	New keyer
+	Exercises rewrited to support new keyer
+	Added Callsign exercise aka QRZ exercise
+	Added keyer setup
+	Added soundcard setup
+	New format for configuration file
+	Improvements in libaudiostream
+	Improvements in libmorse
+	Improvements in libdatafile
+	Fixed speed bug
+	Removed speed in cpm
+	Leave localization support	
+	
+0.5.5	Sun 5 Oct 2003 Giuseppe Martino <denever@users.sourceforge.net> 
+	Fixed some bugs in Classic exercise generator THANKS TO Sandro Serafini
+	Fixed bugs random number generator THANKS TO Sandro Serafini
+	
+0.5.4	Fri 3 Oct 2003 Giuseppe Martino <denever@users.sourceforge.net>
+	Fixed grammar issues --> THANKS TO Tony <falcon611@users.sf.net>
+	Fixed a big bug in exercise generator --> THANKS TO Sandro Serafini
+	Fixed a bug in 16bit sound routine --> THANKS TO Marco Bisioli
+	New italian traslation
+	Fixed a big bug in sound routines
+	
+0.5.3	Wed 1 Oct 2003 Giuseppe Martino <denever@users.sourceforge.net>
+	Code cleanup from 24K to 19K
+		
+0.5.2	Tue 30 Set 2003 Giuseppe Martino <denever@users.sourceforge.net>
+	Fixed a big bug:
+	Aldo didn't play chars "r,p,l,f" --> THANKS TO Sandro Serafini
+	
+0.5.1   Sat 27 Set 2003 Giuseppe Martino <denever@users.sourceforge.net> 
+	Small fixes in libkeyer
+	Small fixes in resources.h	
+	
+0.5.0   Sun 6 Jul 2003 Giuseppe Martino <denever@users.sourceforge.net>
+	Added verify exercise routine
+	Removed check exercise routine
+	Brandnew exercise generator
+	Many improvements in libmorse
+	Many improvements in libmenus
+	Fixed a bug in libmenus --> THANKS TO Arlo Gittings KC0MNN
+	Added koch method	
+	Added skill customizer
+	Added exercise from text file
+	New format for configuration file

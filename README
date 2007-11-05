@@ -1,0 +1,123 @@
+When you start Aldo you will see the Main Menu:
+
+*************************************
+*	Aldo Main Menu		    *	
+*		1: Blocks method    *
+*		2: Koch method      *
+*		3: Read from file   *
+*		4: Callsigns        *
+*		5: Setup            *
+*		6: Exit             *
+*                                   *
+*	Your choice:                *
+*************************************
+
+First of all you must set up Aldo for your PC,
+so select 5.
+
+Now you will see the Setup Menu:
+
+*********************************
+*   Setup Menu			*
+*	1: Keyer Setup		*
+*	2: Blocks method Setup	*
+*	3: Koch method Setup	*
+*	4: Qrz exercise Setup	*
+*	5: Default Settings	*
+*	6: Return to Main Menu	*
+*********************************
+
+Now you have to create the configuration file ~/.aldorc
+So select 5.
+
+Other choices in the Setup Menu:
+
+*********************************
+*   Setup Menu			*
+*	1: Keyer Setup		*
+*	2: Blocks method Setup	*
+*	3: Koch method Setup	*
+*	4: Qrz exercise Setup	*
+*	5: Default Settings	*
+*	6: Return to Main Menu	*
+*********************************
+
+By selecting 1 you can set up:
+
+1) Pause before the start of keying, in seconds (default: 2)
+2) Pause between two letters in a word (default: 3)
+3) Pause between two words (default: 7)
+4) Keying speed in wpm
+5) Length of dot (default: 1)
+6) Length of dash (default: 3)
+7) Frequency of buzzer in Hz (default: 900)
+
+By selecting 2 you can set up training with the Blocks method exercise:
+
+1) Length of words, in characters (default: 5)
+2) Number of words (default: 3)
+3) Character set (default: 1 - i.e. "e,i,s,h,t,m,o")
+
+By selecting 3 you can set up the keying speed for the Koch method.
+
+By selecting 4 you can set up the Callsign exercise.
+Specify your preferred callsign format, using "wildcards":.
+
+@ = random letter
+# = random number
+? = optional letter
+$ = optional number
+
+A fixed letter or a fixed number, (such as "i" or "8" in the examples
+below), is used literally. 
+
+For example:
+
+iz8@@@ is a format for callsigns like iz8bqi iz8eqd iz8tpz etc..
+iz#m@@ gives iz0muv iz9mer iz8mrd etc..
+iz#@@@ gives iz2qwe iz1ert etc..
+i?8@@@ gives i8mro iz8eqd it8aa ih8epz etc..
+i?#@@@ gives imro izqvo iz8mrt etc..
+kc#@@@ gives kc0mnn kc1hjy kc9yup
+
+NOTE: Callsign formats must be lower case: e.g. iz#m@@, not IZ#M@@
+
+Coming back to the Main Menu:
+
+*************************************
+*       Aldo Main Menu              *	
+*		1: Blocks method    *
+*		2: Koch method      *
+*		3: Read from file   *
+*		4: Callsigns        *
+*		5: Setup            *
+*		6: Exit             *
+*                                   *
+*	Your choice:                *
+*************************************
+
+Select 1 to train by the Blocks Method
+Select 2 to train by the Koch Method
+Select 3 for Aldo to read a text file from disk
+Select 4 to train by using random callsigns
+
+Now listen to your speakers.
+Identify the morse characters and write them on a sheet of paper.
+If you are unsure, use an underscore ( _ ) to hold the place of missed letters.
+
+When the exercise has finished you should enter the characters at the keyboard.
+Entering the characters at the keyboard, please replace underscore ( _ ) with @.
+ALDO will then compare your results with the correct version.
+
+If you have suggestions for additional features, please send me an email
+to denever@users.sf.net or subscribe
+aldo mailinglist at http://lists.sourceforge.net/lists/listinfo/aldo-main.
+
+Ciao ciao,
+Giuseppe Martino IZ8EQD.
+
+Thanks to:
+Arlo Gitting KC0MNN
+David Sumbler 
+
+They revised this file (except this row :) )

@@ -1,0 +1,784 @@
+2007-07-01 09:25  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* THANKS, src/audioworkspace.cc: Committed Jan-Simon Möller's
+	  patch to smoth of audio output in aldo
+
+2007-06-29 10:48  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/main.cc: Added #include <cstdlib> in main.cc
+
+2007-05-19 10:37  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* debian/: control, copyright, docs: Update debian package info
+
+2007-05-19 10:35  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/koch.hh, src/koch.cc, src/koch_exc.cc, src/setup.cc:
+	  Change Koch method difficulty advancing
+
+2007-05-16 11:52  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* ChangeLog, VERSION, configure.ac, src/textfile_exc.cc: Released
+	  0.7.4
+
+2007-05-16 11:43  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/dialog.hh, src/check.cc, src/menu.cc, src/setup.cc,
+	  src/textfile_exc.cc: Fixed EOF bug also in check.cc, setup.cc,
+	  textfile_exc.cc
+
+2007-05-16 11:13  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/koch.hh, src/koch_exc.cc: (bug #19741) Fixed. Koch method
+	  skill is never saved.  Fixing this bug I discovered that aldo
+	  doesn't save also speed, number of string, number of chars.
+
+2007-05-16 10:50  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/dialog.hh, src/menu.cc: (bug #19742) Fixed. EOF on
+	  standard input sends program into infinite loop
+
+2007-05-04 12:27  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* ChangeLog: Updated ChangeLog
+
+2007-04-30 00:48  Thomas Herlea <maxthomax>
+
+	* src/check.cc: Put feedback legend for per-symbol statistics
+	  between double quotes and separated it from the stats with an
+	  empty line.
+
+2007-04-30 00:44  Thomas Herlea <maxthomax>
+
+	* src/check.cc: Fixed the division by zero that could happen during
+	  computing statistics if a certain symbol had (by chance) never
+	  been keyed or if it had never been copied (regardless of whether
+	  it had been keyed or not).
+
+2007-04-29 23:51  Thomas Herlea <maxthomax>
+
+	* src/check.cc: Replaced algorithm for generating and displaying
+	  the feedback for groups of symbols: - one loop for generating
+	  feedback cells - another loop for displaying the cells taking
+	  care of terminal width
+
+2007-04-29 23:33  Thomas Herlea <maxthomax>
+
+	* include/resources.hh, src/check.cc: Added finer-grained feedback
+	  per symbol: - two points of view for the statistics:	   * what
+	  was keyed, to see which symbols tend not to be recognized	*
+	  what was copied, to see which symbols tend to be "heard" even
+	  when they are not keyed - both count breakdown and percentage
+	  breakdown for each
+
+2007-04-29 23:16  Thomas Herlea <maxthomax>
+
+	* src/check.cc: Expanded feedback legend in display_comparison() to
+	  include the MISSED_MARKER.  Added double quotes in the output
+	  around the legend.
+
+2007-04-29 23:09  Thomas Herlea <maxthomax>
+
+	* include/resources.hh: Expanded feedback legend in
+	  display_comparison() to include the MISSED_MARKER.  Added double
+	  quotes in the output around the legend.
+
+2007-04-29 13:59  Thomas Herlea <maxthomax>
+
+	* src/check.cc: Display missed symbols as missed, not as mistakes
+	  (both when explicitly entered as missed and when a group is too
+	  short).
+
+2007-04-29 13:35  Thomas Herlea <maxthomax>
+
+	* src/check.cc: Replaced hardcoded markers '.' and '@' by macros
+	  and renamed the macro for '!'.
+
+2007-04-28 12:19  Thomas Herlea <maxthomax>
+
+	* src/check.cc: Replaced inflexible macro COUNTER_WIDTH with
+	  function width_base_10(max_counter_value).
+
+2007-04-25 21:15  denever
+
+	* include/menu.hh: Comitted a patch from Martin Michlmayr FTBFS
+	  with GCC 4.3: error: extra ';'
+
+2007-04-25 00:28  Thomas Herlea <maxthomax>
+
+	* src/check.cc: (bug #19692) When truncating a symbol group, the
+	  number of correctly copied occurrences of the symbols omitted
+	  from the group is not reset to zero any more.
+
+2007-04-25 00:21  Thomas Herlea <maxthomax>
+
+	* src/check.cc: Ensure that the symbol group counter has the right
+	  values in the last cell row, regardless whether it is the only
+	  row or not.
+
+2007-04-24 01:25  Thomas Herlea <maxthomax>
+
+	* src/check.cc: (bug #19674) In the loop for the incomplete row of
+	  cells, increment cell counter before creating cell because the
+	  previous loop left it at a value corresponding to the last cell
+	  of the previous row.
+
+2007-04-24 01:22  Thomas Herlea <maxthomax>
+
+	* src/check.cc: Removed loop counter incrementation which
+	  duplicated the incrementation from the for statement. Now the
+	  rows of cells are tracked properly.
+
+2007-04-24 01:20  Thomas Herlea <maxthomax>
+
+	* src/check.cc: (bug #19674) list iterators advance every time a
+	  cell is built, otherwise every row but the last one will just
+	  repeat its first cell.
+
+2007-04-24 01:15  Thomas Herlea <maxthomax>
+
+	* src/check.cc: Replaced ostringstream::clear() by
+	  ostringstream::str(string). The old one just clears error flags,
+	  the new one "empties" the string. This way a new rows of cells
+	  replaces the old one instead of being appended to it.
+
+2007-04-23 10:54  Thomas Herlea <maxthomax>
+
+	* src/check.cc: Moved function padding() to the top of the file
+	  because it will be used in future functions, too, and because it
+	  was separating the function display_comparison() from its
+	  comments.
+
+2007-04-23 00:10  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/koch.hh, src/koch.cc, src/koch_exc.cc: Committed Thomas
+	  Herlea's Shuffle Koch Patch
+
+2006-11-01 09:35  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/: koch_exc.cc, main.cc: Added support for automated writing
+	  of ~/.aldorc
+
+2006-09-27 19:53  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* THANKS: Updated THANKS for Ferdinando Maresca
+
+2006-09-27 19:48  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/check.cc: Added ++n at check.cc:264
+
+2006-09-25 13:01  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* ChangeLog, VERSION, configure.ac: Released 0.7.3
+	* configure.ac: Added error message to AC_CHECK_LIB
+	
+2006-09-24 19:22  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/check.cc: 
+		Defined typedefs 
+		s/std:://g 
+		Rewrited display_symbol_rate using list and map iterators 
+		Rewrited mark_mistakes using string iterators
+		Rewrited get_maked_strings using list iterators
+		Used padding function in display_comparison
+		Rewrited count_wrong_letters using string iterators
+
+2006-09-24 12:13  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/check.cc: 
+		Rewrited display_simbol_rate in check.cc using
+		map<char, unsigned int> 
+		
+		Fixed a bug in mark_mistakes in check.cc
+
+2006-09-24 09:06  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/check.cc: Replaced padding function with string(int,'@')
+
+2006-09-23 21:24  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/blocks.hh, include/koch.hh, src/blocks.cc, src/check.cc,
+	  src/koch.cc: 
+		Removed get_string, get_string_len, len, verify methods from
+		interface of Blocks
+		
+		Added tokenize method to interface of Blocks
+		
+		Removed get_string, get_string_len, len, verify methods from
+		interface of Koch
+
+		Added tokenize method to interface of Koch
+		
+		Used tokenize in check.cc
+
+2006-06-12 22:54  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* VERSION, configure.ac: Released 0.7.2
+
+2006-06-12 22:35  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/textfile.cc:
+
+	  Fixed a typo at line 77 s/exc_string()/exc_string/
+
+2006-06-12 22:25  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/textfile.cc: Fixed temporary variable bug thanks to Jim Van Donsel
+
+2006-06-12 22:08  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/: astream.cc, blocks.cc, blocks_exc.cc, check.cc,
+	  datafile.cc, keyer.cc, koch.cc, koch_exc.cc, main.cc, menu.cc,
+	  option.cc, qrz.cc, qrz_exc.cc, random.cc, section.cc, setup.cc,
+	  textfile.cc, textfile_exc.cc, wave.cc: Fixed Copyright notice
+
+2006-04-12 20:40  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/: astream.hh, audioexcep.hh, audioworkspace.hh,
+	  blocks.hh, datafile.hh, dialog.hh, exception.hh, keyer.hh,
+	  koch.hh, menu.hh, option.hh, qrz.hh, resources.hh, section.hh,
+	  skill.hh, textfile.hh, wave.hh: Fixed a typo
+	  
+	  Released 0.7.1
+	
+2006-04-12 17:46  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/blocks.hh, include/keyer.hh, include/koch.hh,
+	  include/qrz.hh, include/textfile.hh, src/blocks.cc, 
+	  src/menu.cc: Fixed to be gcc-4.2 compliant
+
+2006-03-06 21:56  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/blocks.cc: Aggiunta la funzione membro:
+	  unsigned int Blocks::execute()
+
+2005-10-28 13:34  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/Makefile.am, include/resources.hh, src/Makefile.am,
+	  src/resources.hh: Moved src/resource.hh in include/
+
+2005-10-27 23:31  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* THANKS, bootstrap, configure.ac: Fixed bootstrap.sh adding mkdir config 
+		                           Removed blank rows in THANKS
+
+2005-10-27 10:25  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/random.hh, src/koch.cc: In koch method increase also
+	  blocks size and blocks number
+
+2005-10-25 18:01  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/setup.cc: Fixed a bug in configfile in setup.cc with
+	  s/classic/blocks/g
+
+2005-10-25 17:51  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/resources.hh: Fixed resources.hh with s/block/blocks/g
+
+2005-10-25 17:45  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/: blocks.cc, blocks_exc.cc: Added missed files
+
+2005-10-25 17:17  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* README: Updated README with s/Classic/Blocks method/g
+
+2005-10-25 17:15  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* aldo.1: Updated aldo.1
+
+2005-10-25 17:14  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* ChangeLog, debian/control, include/Makefile.am,
+	  include/blocks.hh, include/classic.hh, src/Makefile.am,
+	  src/check.cc, src/classic.cc, src/classic_exc.cc, src/main.cc,
+	  src/resources.hh: Renamed Classic method in Blocks method in
+	  resource.hh Renamed classic.hh in blocks.hh Renamed classic.cc in
+	  blocks.cc Renamed classic_exc in blocks_exc.cc Updated
+	  include/Makefile.am src/Makefile.am
+
+	  Renamed ::OnClassic() in ::OnBlocks() Renamed class Classic in
+	  class Blocks Updated debian/control
+2005-10-23 21:41  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/: classic_exc.cc, qrz_exc.cc, textfile_exc.cc: Renamed each
+	  current_exercise in [classic|koch|textfile|qrz]_exc form
+
+2005-10-23 21:37  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/astream.hh, include/audioexcep.hh,
+	  include/audioworkspace.hh, include/classic.hh,
+	  include/datafile.hh, include/dialog.hh, include/exception.hh,
+	  include/keyer.hh, include/koch.hh, include/menu.hh,
+	  include/option.hh, include/qrz.hh, include/random.hh,
+	  include/section.hh, include/skill.hh, include/textfile.hh,
+	  include/wave.hh, src/astream.cc, src/check.cc, src/classic.cc,
+	  src/classic_exc.cc, src/datafile.cc, src/keyer.cc, src/koch.cc,
+	  src/koch_exc.cc, src/main.cc, src/menu.cc, src/option.cc,
+	  src/qrz.cc, src/qrz_exc.cc, src/random.cc, src/resources.hh,
+	  src/section.cc, src/setup.cc, src/textfile.cc,
+	  src/textfile_exc.cc, src/wave.cc: Fixed copyleft/copyright typo
+
+2005-10-23 21:36  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* README, src/resources.hh, src/setup.cc: Updated README for new
+	  setup menu Updated Koch setup menu for new Koch exercise options
+
+2005-10-22 22:50  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/dialog.hh, src/koch_exc.cc: Fixed bug in dialog default
+	  management
+
+2005-10-17 22:48  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* debian/control: Removed unused autotools-dev build dependency
+
+2005-10-17 22:03  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/: resources.hh, setup.cc: Added koch skill setup
+
+2005-10-17 21:51  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/: resources.hh, setup.cc: Added configuration of training set
+	  if characters
+
+2005-10-17 21:17  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/dialog.hh, include/koch.hh, src/check.cc, src/koch.cc,
+	  src/koch_exc.cc: Added cin.ignore() in Dialog::show() Removed
+	  inline next() Added Koch::next() Fixed a typo in Koch constructor
+
+2005-10-17 19:46  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/koch.hh, src/check.cc, src/koch_exc.cc: Added
+	  Koch::skill() Added Koch::get_chars() Added Koch::next() Added
+	  check(Koch) Added display_feedback(Koch)
+
+2005-10-17 19:13  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/: classic_exc.cc, koch_exc.cc, qrz_exc.cc, textfile_exc.cc,
+	  resources.hh: Fixed a silly typo
+
+2005-10-17 19:03  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/koch.hh, src/koch.cc, src/setup.cc: Fixed a silly typo in
+	  setup.cc Added Chars option for koch config Included koch.hh in
+	  koch.cc Fixed Koch constructor declaration
+
+2005-10-17 17:58  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* VERSION: Changed to 0.7.1 version
+
+2005-10-17 17:57  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* configure.ac: Changed to 0.7.1
+
+2005-10-17 17:54  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/Makefile.am: Fixed src/Makefile.am adding resource.hh to
+	  aldo_SOURCES
+
+2005-10-17 17:51  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/Makefile.am, src/Makefile.am: Updated include/Makefile.am
+	  src/Makefile.am for compiling new koch method
+
+2005-10-17 17:49  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/classic.hh, include/dialog.hh, include/koch.hh,
+	  include/menu.hh, src/koch.cc: Added macro *_H checking in
+	  classic.hh dialog.h menu.hh Added new koch method
+
+2005-10-17 15:39  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* aldo.1: Rewrited aldo man page
+
+2005-10-16 19:40  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* debian/: control: Changed read from file description
+
+2005-10-16 18:54  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* debian/control: Fixed long description
+
+2005-10-16 18:20  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* debian/control: Long description rewrited one more time
+
+2005-10-16 17:46  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* debian/control: Writed new long description
+
+2005-10-16 17:23  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* debian/control: Remove two build dependencies marked as
+	  build-essential
+
+2005-10-11 21:23  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/resources.hh: Changed to .hh headers
+
+2005-10-11 21:18  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/Makefile.am, include/astream.h, include/audioexcep.h,
+	  include/audioworkspace.h, include/classic.h, include/datafile.h,
+	  include/dialog.h, include/exception.h, include/keyer.h,
+	  include/menu.h, include/option.h, include/qrz.h,
+	  include/random.h, include/section.h, include/skill.h,
+	  include/textfile.h, include/wave.h, src/astream.cc,
+	  src/audioworkspace.cc, src/check.cc, src/classic.cc,
+	  src/classic_exc.cc, src/datafile.cc, src/keyer.cc,
+	  src/koch_exc.cc, src/main.cc, src/menu.cc, src/option.cc,
+	  src/qrz.cc, src/qrz_exc.cc, src/random.cc, src/resources.h,
+	  src/section.cc, src/setup.cc, src/textfile.cc,
+	  src/textfile_exc.cc, src/wave.cc, include/astream.hh,
+	  include/audioexcep.hh, include/audioworkspace.hh,
+	  include/classic.hh, include/datafile.hh, include/dialog.hh,
+	  include/exception.hh, include/keyer.hh, include/menu.hh,
+	  include/option.hh, include/qrz.hh, include/random.hh,
+	  include/section.hh, include/skill.hh, include/textfile.hh,
+	  include/wave.hh: Changed to .hh headers
+
+2005-10-11 08:27  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/: astream.cc, audioworkspace.cc, check.cc, classic.cc,
+	  classic_exc.cc, datafile.cc, keyer.cc, koch_exc.cc, main.cc,
+	  menu.cc, option.cc, qrz.cc, qrz_exc.cc, random.cc, section.cc,
+	  setup.cc, textfile.cc, textfile_exc.cc, wave.cc: Changed from
+	  *.cpp to *.cc
+
+2005-10-11 08:22  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* debian/copyright, src/Makefile.am, src/astream.cpp,
+	  src/audioworkspace.cpp, src/check.cpp, src/classic.cpp,
+	  src/classic_exc.cpp, src/datafile.cpp, src/keyer.cpp,
+	  src/koch_exc.cpp, src/main.cpp, src/menu.cpp, src/option.cpp,
+	  src/qrz.cpp, src/qrz_exc.cpp, src/random.cpp, src/section.cpp,
+	  src/setup.cpp, src/textfile.cpp, src/textfile_exc.cpp,
+	  src/wave.cpp: Change from *.cpp to *.cc
+
+2005-10-07 23:19  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* TODO, debian/copyright: The TODO doesn't seem to have much of
+	  value for the end-user.
+
+2005-10-07 16:47  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* debian/aldo.substvars: Removed unuseful file
+
+2005-10-07 15:40  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/Makefile.am: Removed README.sources from extradist
+	* aldo-0.7.0 released
+	
+2005-10-07 12:05  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* NEWS: Updated News file
+
+2005-10-07 11:06  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* ChangeLog, README: Updated ChangeLog 
+	  Removed from README instructions to configure soundcard
+	
+2005-10-06 11:41  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/README.sources: Removed empty unused file
+	
+2005-10-04 20:11  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/dialog.h: Fixed a bug of default support in dialog
+
+2005-10-03 22:17  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* ChangeLog, NEWS: ChangeLog Updated NEWS
+
+2005-10-03 21:11  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* ChangeLog, include/astream.h, include/audioexcep.h,
+	  src/astream.cpp: 
+	  Updated ChangeLog 
+	  Used AudioException in astream.* 
+	  Rewrited AudioException
+
+2005-10-03 18:23  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* config/readline.m4: Removed unused file readline.m4
+
+2005-10-03 17:35  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* ChangeLog, THANKS, include/dialog.h, src/koch_exc.cpp,
+	  src/menu.cpp, src/resources.h, src/setup.cpp: 
+	   ChangeLog THANKS Updated
+
+	   Added default choice support
+
+	   Changed prompt string
+
+	   Used dialog with default choice
+
+2005-10-01 15:58  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/setup.cpp:  Fixed \0 getline bug
+
+2005-09-29 14:41  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* debian/control, src/setup.cpp:
+
+	  Removed build-depend on libreadline5-dev
+	  
+	  Changed description
+
+	  Rewrited update_option function
+
+2005-09-25 15:53  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* configure.ac, include/dialog.h, src/menu.cpp:
+	  
+	  Removed libreadline use
+
+2005-09-25 13:43  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/keyer.h, src/astream.cpp, src/keyer.cpp:
+
+	   Added new set_* methods
+
+	   Removed wrong used of delete
+
+2005-09-25 11:52  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/astream.h, include/audioexcep.h, include/classic.h,
+	  include/datafile.h, include/exception.h, include/keyer.h,
+	  include/menu.h, include/option.h, include/qrz.h,
+	  include/section.h, include/skill.h, include/textfile.h,
+	  src/check.cpp, src/classic.cpp, src/classic_exc.cpp,
+	  src/datafile.cpp, src/keyer.cpp, src/koch_exc.cpp, src/menu.cpp,
+	  src/option.cpp, src/qrz.cpp, src/qrz_exc.cpp, src/resources.h,
+	  src/section.cpp, src/textfile.cpp:
+
+	  Fixed typo in GPL disclaimer
+
+2005-09-25 11:44  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/keyer.h:  
+
+	  Fixed a typo in keyer constructor declaration
+
+2005-09-25 11:32  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/: dialog.h, keyer.h:
+
+  	   Used standard template declaration
+
+	   Rewrited interface in a more readable way
+
+2005-09-20 21:31  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/astream.h:
+	  
+	  Added HAVE_AO_H checking befor include ao/ao.h
+
+2005-09-20 21:26  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* VERSION, configure.ac, debian/control:
+
+	  Updated to 0.7.0
+
+	  Added build-depend item on libao-dev
+
+2005-09-20 20:31  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* Makefile.am, include/Makefile.am, src/Makefile.am:
+
+	  Removed note "based on Bob Harrington Makefile.am"
+	  because rewrited from scratch
+
+2005-09-20 20:29  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/random.cpp: Fixed an unused variable warning
+	  about rightRangeRand with s/rightScaleRand/rightRangeRand at line
+	  76
+
+2005-09-20 20:23  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/keyer.h:  Fixed position of m_audio e
+	  m_aws private variable
+
+2005-09-20 20:21  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* THANKS: Updated about libao
+
+2005-09-20 20:20  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* TODO, src/classic_exc.cpp, src/koch_exc.cpp, src/qrz_exc.cpp,
+	  src/resources.h, src/setup.cpp, src/textfile_exc.cpp:
+
+	  Removed any refernce to SoundCard configuration
+
+	  Removed last TODO item about alsa support
+
+2005-09-20 20:06  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/Makefile.am, src/Makefile.am:  
+
+	   Added audioworkspace.h to noinst_HEADERS
+
+	   Added audioworkspace.cpp to aldo_SOURCES
+
+2005-09-20 20:02  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/audioworkspace.h, src/audioworkspace.cpp:
+
+	  Added from new libaudiosteam libao based
+
+2005-09-20 19:53  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* configure.ac, include/astream.h, include/keyer.h, include/wave.h,
+	  src/astream.cpp, src/classic.cpp, src/classic_exc.cpp,
+	  src/keyer.cpp, src/koch_exc.cpp, src/qrz_exc.cpp,
+	  src/textfile_exc.cpp, src/wave.cpp:
+	  
+	  Added checks for libao
+	  Removed checks for OSS headers
+
+	  Installed new libaudiostream using libao
+
+	  Changed Keyer constructor arguments removed oastream arg\
+	  with audioworkspace arg 
+	  Removed Keyer::sample_rate()
+	  Removed Keyer::sample_size()
+
+	  Changed sample_type from double to char 
+	  Removed Wave::Wave() 
+	  Added Wave::Wave(size_type, sample_buffer_pointer)
+	  Removed SineWave and Pause
+
+	  Fixed indentation
+
+	  Used new Keyer constructor
+
+2005-09-19 22:15  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/Makefile.am:  Added ansi pedantic Wall flags
+
+2005-09-17 01:34  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/: astream.cpp, menu.cpp, resources.h:
+	Checking HAVE_CONFIG_H before including config.h
+
+2005-09-15 10:10  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* debian/dirs: Removed /usr/sbin unused dir
+
+2005-09-15 09:44  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/Makefile.am, src/astream.cpp:
+ 	   Fixed noinst_include_HEADERS to noinst_HEADERS
+
+	   Added missed include config.h
+
+2005-09-15 09:36  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* include/Makefile.am:  
+	  Changed include_HEADERS in noinst_include_HEADERS 
+	  to avoid installation of include/*.h
+
+2005-09-14 21:03  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* configure.ac, debian/copyright, src/astream.cpp, src/resources.h:
+	  Update autoconf support checking for more headers
+	  Using config.h in astream.cpp e resources.h
+
+2005-09-13 11:05  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* debian/control: Removed a libc6-dev that was listed twice in
+	  build-depends Changed long description
+
+2005-09-13 10:37  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* ChangeLog, NEWS, VERSION: Switched to 0.6.11 version 
+	  Updated ChangeLog NEWS VERSION
+
+2005-09-13 00:45  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* src/Makefile.am: Fixed wrong name s/README.Sources/README.sources
+	  in src/Makefile.am
+
+2005-09-13 00:34  Giuseppe Martino <denever@users.sourceforge.net>
+
+	* configure.ac, debian/control, src/Makefile.am: 
+	  Removed unuseful build-depend on automake1.9
+	  Changed to version 0.6.11 
+	  Added to distro README.Sources
+
+0.6.11	Mon 12 Sep 2005 Giuseppe Martino <denever@users.sourceforge.net>
+	Added man page file in top source dir aldo.1	
+	Added readline.m4 in config/
+
+	Moved librandom/*.h in include/
+	Moved libdatafile/src/*.h in include/
+	Moved libkeyer/*.h in include/
+	Moved libmenus/*.h in include/
+	Moved libaudiostream/*.h in include/
+	Moved librandom/*.cpp in src/
+	Moved libdatafile/src/*.cpp in src/
+	Moved libkeyer/*.cpp in src/
+	Moved libmenus/*.cpp in src/
+	Moved libaudiostream/*.cpp in src/
+
+	Removed librandom/
+	Removed libdatafile/
+	Removed libkeyer/
+	Removed libmenus/
+	Removed libaudiostream/
+
+	Added include/Makefile.am
+	Added *.cpp in src/Makefile.am
+
+	In configure.ac removed AC_CHECK_HEADERS([readline/readline.h readline/history.h])
+	In configure.ac added VL_LIB_READLINE defined in readline.m4
+	In configure.ac removed lib*/Makefile from AC_CONFIG_FILES
+	In configure.ac added include/Makefile in AC_CONFIG_FILES
+
+	Fixed dialog.h and menu.cpp removing bogus use of cin and char*	
+	
+0.6.10	Mon 12 Sep 2005 Giuseppe Martino <denever@users.sourceforge.net>
+	Version burned
+	
+0.6.9	Mon 12 Sep 2005 Giuseppe Martino <denever@users.sourceforge.net>
+	Version burned
+0.6.8   
+	Sat 3 Sep 2005 Bob Harrington <rharring@iee.org>
+	Added Makefile.am
+	Added Makefile.in
+	Added configure.ac
+	Added bootstrap
+	Added librandom/Makefile.am
+	Added libdatafile/src/Makefile
+	Added libdatafile/src/Makefile.am
+	Added libdatafile/Makefile.am
+	Added libkeyer/Makefile.am
+	Added libmenus/Makefile.am
+	In librandom/random.h removed from Random class: 
+	void randomize();
+	Random(unsigned long seed);
+	int ToC();
+	double real();
+	In librandom/random.cpp removed:
+	void randomize();
+	Random(unsigned long seed);
+	int ToC();
+	double real();
+	In librandom/random.cpp changed:
+	Random::integer(int min, int max) to use rand() from stdlib
+	In libexercise/classic.cpp Classic::randstring removed weights
+	
+	Wed 7 Sep 2005 Giuseppe Martino <denever@users.sourceforge.net>
+	Writed ChangeLog file
+	Fixed THANKS file
+	Fixed GPL disclaimers
+	In libmenu/dialog.h added prepocessor directive handling config macros
+	In libmenu/menu.cpp added prepocessor directive handling config macros
+	In libmenu/dialog.h added Choice::Choice(const Choice<T> & cpy)
+	In libmenu/dialog.h added Choice::operator=(const Choice<T> & cpy)
+	In libmenu/dialog.h added Choice::~Choice()
