@@ -2,8 +2,8 @@
 /***************************************************************************
                          librandom part of Aldo
                           --------------------
+Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2007 Giuseppe "denever" Martino
     begin                : Sun May 6 2001
-    copyright            : Giuseppe "denever" Martino
     improved             : Bob Harrington
     email                : denever@users.sourceforge.net
  ***************************************************************************/
