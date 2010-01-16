@@ -77,6 +77,12 @@ void OnKoch()
 	cout<<msg_speed<<startspeed<<" wpm"<<endl;
 	cout<<msg_start<<endl;
 
+	cout<<"Letters in lesson: ";
+	typedef std::list< std::string >::const_iterator c_str;
+	for(c_str cit = chars.begin(); cit != chars.end(); cit++)
+	    cout<<*cit<<" ";
+	cout<<endl;
+
 	libaudiostream::AudioWorkSpace aws(device);
 
 	libkeyer::Keyer current_keyer(aws, startspeed, charpause, strpause, dotlen, linelen);
