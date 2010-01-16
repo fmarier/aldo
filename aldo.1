@@ -43,6 +43,23 @@ It is a morse code learning tool which provides four type of training methods:
 .B Callsign
  Identify random callsigns played in morse code.
 .br
+.SH NOTES
+The "Device" option under the keyer depends on the particular driver.
+The "default" setting picks the default sound device.  This option may
+be used to pick a different soundcard than the default one.
+
+For alsa, it is "hw:<card>,<device>", where the card and device number
+are the particular hardware devices.  The default is generally
+"hw:0.0".  Generally 0 is the first card, 1 is the second, etc.  Some
+sound cards may have multiple output devices, the device picks the
+particular one.
+
+For oss, sun, and aixs, it is the device name, like /dev/dsp.
+
+For esd, it is the host name, like "whizbang.com:555".
+
+It is not used on any other drivers.
+
 .SH AUTHOR
 This manual page was written by Giuseppe Martino <denever@users.sf.net>,
 for the Debian project (but may be used by others).

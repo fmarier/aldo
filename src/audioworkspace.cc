@@ -37,13 +37,13 @@ using namespace libaudiostream;
 
 int offset = numeric_limits<short>::max()/2 - 1;
 
-AudioWorkSpace::AudioWorkSpace():
-    m_bits(16), m_sample_rate(44100), m_channels(2), m_byte_format(AO_FMT_LITTLE)
+AudioWorkSpace::AudioWorkSpace(std::string device):
+    m_bits(16), m_sample_rate(44100), m_channels(2), m_byte_format(AO_FMT_LITTLE), m_device(device)
 {
 }
 
-AudioWorkSpace::AudioWorkSpace(size_type b, size_type sr, size_type ch, size_type bf):
-    m_bits(b), m_sample_rate(sr), m_channels(ch), m_byte_format(bf)
+AudioWorkSpace::AudioWorkSpace(size_type b, size_type sr, size_type ch, size_type bf, string device):
+    m_bits(b), m_sample_rate(sr), m_channels(ch), m_byte_format(bf), m_device(device)
 {
 }
 
@@ -109,7 +109,7 @@ oastream AudioWorkSpace::create_output_stream()
     format.rate = m_sample_rate;
     format.byte_format = AO_FMT_LITTLE;
 
-    return oastream(format);
+    return oastream(format, m_device);
 }
 
 /*

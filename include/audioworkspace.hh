@@ -30,6 +30,8 @@ Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2007 Giuseppe "denever" Martin
 
 #include "wave.hh"
 
+#include <string>
+
 namespace libaudiostream
 {
     class oastream;
@@ -37,8 +39,8 @@ namespace libaudiostream
     class AudioWorkSpace
     {
     public:
-	AudioWorkSpace();
-	AudioWorkSpace(size_type, size_type, size_type, size_type);
+	AudioWorkSpace(std::string);
+	AudioWorkSpace(size_type, size_type, size_type, size_type, std::string);
 	AudioWorkSpace(const Wave&);
 	virtual ~AudioWorkSpace();
 	
@@ -51,6 +53,7 @@ namespace libaudiostream
 	size_type m_sample_rate;
 	size_type m_channels;
 	size_type m_byte_format;
+	std::string m_device;
     };
 }
 #endif //AUDIOWORKSPACE_H

@@ -108,7 +108,7 @@ Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2007 Giuseppe "denever" Martin
 #define dlg_koch_continue "Yes"
 #define dlg_koch_exit     "No"
 
-#define insert_device     "Soundcard device file"
+#define insert_device     "Soundcard device name/file"
 #define insert_samplerate "Sample rate"
 #define insert_samplesize "Sample size"
 

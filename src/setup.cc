@@ -124,6 +124,7 @@ void OnKeyerConf()
     update_option(this_sec->option("DotLength"), insert_dotlen);
     update_option(this_sec->option("LineLength"), insert_linelen);
     update_option(this_sec->option("Tone"), insert_tone);
+    update_option(this_sec->option("Device"), insert_device);
 }
 
 void OnBlocksConf()
@@ -238,6 +239,9 @@ void OnResetDefault()
 
     keyer_sec->add_option("Tone");
     keyer_sec->option("Tone")->set(900);
+
+    keyer_sec->add_option("Device");
+    keyer_sec->option("Device")->set("default");
 
     fileconf.add_section("Blocks");
     sec_it blocks_sec = fileconf.section("Blocks");

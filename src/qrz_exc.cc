@@ -55,12 +55,13 @@ void OnQrz()
     unsigned int dotlen = keyer_sec->option("DotLength")->get();
     unsigned int linelen = keyer_sec->option("LineLength")->get();
     unsigned int tone = keyer_sec->option("Tone")->get();
+    string       device = keyer_sec->option("Device")->getstr();
     
     libdatafile::sec_it qrz_sec = fileconf.section("Qrz");
     string callformat = qrz_sec->option("CallFormat")->getstr();
     unsigned int strnum = qrz_sec->option("StringsNumber")->get();	
 
-    libaudiostream::AudioWorkSpace aws;
+    libaudiostream::AudioWorkSpace aws(device);
 
     libkeyer::Keyer current_keyer(aws, speed, charpause, strpause, dotlen, linelen);
 

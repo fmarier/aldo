@@ -32,16 +32,38 @@ Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2007 Giuseppe "denever" Martin
 using namespace std;
 using namespace libaudiostream;
 
-oastream::oastream(ao_sample_format format) throw(AudioException):
+oastream::oastream(ao_sample_format format, string device = "default")
+    throw(AudioException):
     m_format(format)
 {
+    ao_option *options = NULL;
+    const char *devstr = NULL;
+
     ao_initialize();
 
     if( (m_default_driver = ao_default_driver_id()) < 0)
 	throw AudioException("There is no default driver.");
+
+    if (device == "default")
+	devstr = NULL;
+    else if ((m_default_driver == ao_driver_id("alsa"))
+	|| m_default_driver == ao_driver_id("sun")
+	|| m_default_driver == ao_driver_id("aixs"))
+	devstr = "dev";
+    else if (m_default_driver == ao_driver_id("esd"))
+	devstr = "host";
+    else if (m_default_driver == ao_driver_id("oss"))
+	devstr = "dsp";
+
+    if (devstr) {
+	if (ao_append_option(&options, "dev", device.c_str()) != 1)
+	    throw AudioException("Error appending 'device' option");
+    }
     
-    m_audio = ao_open_live(m_default_driver, &m_format, NULL /* no options */);
+    m_audio = ao_open_live(m_default_driver, &m_format, options);
     
+    ao_free_options(options);
+
     if(!m_audio)
 	throw AudioException("Error opening device");
 }

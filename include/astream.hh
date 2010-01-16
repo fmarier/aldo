@@ -32,6 +32,8 @@ Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2007 Giuseppe "denever" Martin
 #include "config.h"
 #endif
 
+#include <string>
+
 #ifdef HAVE_AO_AO_H
 #include <ao/ao.h>
 #endif
@@ -45,7 +47,7 @@ namespace libaudiostream
     class oastream
     {
     public:
-	oastream(ao_sample_format) throw(AudioException);
+	oastream(ao_sample_format, std::string device) throw(AudioException);
 
 	oastream(const oastream&);
 	
@@ -57,7 +59,7 @@ namespace libaudiostream
     private:
 	ao_device* m_audio;
 	ao_sample_format m_format;
-	unsigned int m_default_driver;
+	int m_default_driver;
     };
 }
 

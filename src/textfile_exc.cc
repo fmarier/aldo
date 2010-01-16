@@ -52,6 +52,7 @@ void OnTextFile()
     unsigned int dotlen = keyer_sec->option("DotLength")->get();
     unsigned int linelen = keyer_sec->option("LineLength")->get();
     unsigned int tone = keyer_sec->option("Tone")->get();
+    string       device = keyer_sec->option("Device")->getstr();
         
     string filename;
     do
@@ -62,7 +63,7 @@ void OnTextFile()
     }
     while(! getline(cin, filename) );
 
-    libaudiostream::AudioWorkSpace aws;
+    libaudiostream::AudioWorkSpace aws(device);
 
     libkeyer::Keyer current_keyer(aws, speed, charpause, strpause, dotlen, linelen);
 

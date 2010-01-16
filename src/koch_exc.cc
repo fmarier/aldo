@@ -55,6 +55,7 @@ void OnKoch()
     unsigned int dotlen = keyer_sec->option("DotLength")->get();
     unsigned int linelen = keyer_sec->option("LineLength")->get();
     unsigned int tone = keyer_sec->option("Tone")->get();
+    string       device = keyer_sec->option("Device")->getstr();
 
     libdatafile::sec_it koch_sec = fileconf.section("Koch");
     std::string chars = koch_sec->option("Chars")->getstr();
@@ -76,7 +77,7 @@ void OnKoch()
 	cout<<msg_speed<<startspeed<<" wpm"<<endl;
 	cout<<msg_start<<endl;
 
-	libaudiostream::AudioWorkSpace aws;
+	libaudiostream::AudioWorkSpace aws(device);
 
 	libkeyer::Keyer current_keyer(aws, startspeed, charpause, strpause, dotlen, linelen);
 

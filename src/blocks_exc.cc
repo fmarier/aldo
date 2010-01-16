@@ -56,13 +56,14 @@ void OnBlocks()
     unsigned int dotlen = keyer_sec->option("DotLength")->get();
     unsigned int linelen = keyer_sec->option("LineLength")->get();
     unsigned int tone = keyer_sec->option("Tone")->get();
+    string       device = keyer_sec->option("Device")->getstr();
     
     libdatafile::sec_it quick_sec = fileconf.section("Blocks");
     unsigned int strlen = quick_sec->option("StringLength")->get();
     unsigned int strnum = quick_sec->option("StringsNumber")->get();
     unsigned int skill = quick_sec->option("Skill")->get();
 
-    libaudiostream::AudioWorkSpace aws;
+    libaudiostream::AudioWorkSpace aws(device);
 
     libkeyer::Keyer current_keyer(aws, speed, charpause, strpause, dotlen, linelen);
 
