@@ -1,7 +1,13 @@
+2009-01-16 17:42 Giuseppe Martino <denever@users.sourceforge.net>
+	* Added soundcard selection patch from Corey Minyard.
+	* Added a patch from Sam "SammytheSnake" Penny that adds support to upper-case and punctuation characters
+	* Added patch from Corey Minyard that changes default koch sequence
+	* Released aldo 0.7.6
+	
 2007-11-05 10:00 Giuseppe Martino <denever@users.sourceforge.net>
 
 	* Released aldo 0.7.5
-	
+
 2007-11-05 09:53  Giuseppe Martino <denever@users.sourceforge.net>
 
 	* configure.ac: Committed Diane VA3DB's patch
@@ -188,13 +194,13 @@
 
 	* ChangeLog, VERSION, configure.ac: Released 0.7.3
 	* configure.ac: Added error message to AC_CHECK_LIB
-	
+
 2006-09-24 19:22  Giuseppe Martino <denever@users.sourceforge.net>
 
-	* src/check.cc: 
-		Defined typedefs 
-		s/std:://g 
-		Rewrited display_symbol_rate using list and map iterators 
+	* src/check.cc:
+		Defined typedefs
+		s/std:://g
+		Rewrited display_symbol_rate using list and map iterators
 		Rewrited mark_mistakes using string iterators
 		Rewrited get_maked_strings using list iterators
 		Used padding function in display_comparison
@@ -202,10 +208,10 @@
 
 2006-09-24 12:13  Giuseppe Martino <denever@users.sourceforge.net>
 
-	* src/check.cc: 
+	* src/check.cc:
 		Rewrited display_simbol_rate in check.cc using
-		map<char, unsigned int> 
-		
+		map<char, unsigned int>
+
 		Fixed a bug in mark_mistakes in check.cc
 
 2006-09-24 09:06  Giuseppe Martino <denever@users.sourceforge.net>
@@ -215,17 +221,17 @@
 2006-09-23 21:24  Giuseppe Martino <denever@users.sourceforge.net>
 
 	* include/blocks.hh, include/koch.hh, src/blocks.cc, src/check.cc,
-	  src/koch.cc: 
+	  src/koch.cc:
 		Removed get_string, get_string_len, len, verify methods from
 		interface of Blocks
-		
+
 		Added tokenize method to interface of Blocks
-		
+
 		Removed get_string, get_string_len, len, verify methods from
 		interface of Koch
 
 		Added tokenize method to interface of Koch
-		
+
 		Used tokenize in check.cc
 
 2006-06-12 22:54  Giuseppe Martino <denever@users.sourceforge.net>
@@ -255,13 +261,13 @@
 	  blocks.hh, datafile.hh, dialog.hh, exception.hh, keyer.hh,
 	  koch.hh, menu.hh, option.hh, qrz.hh, resources.hh, section.hh,
 	  skill.hh, textfile.hh, wave.hh: Fixed a typo
-	  
+
 	  Released 0.7.1
-	
+
 2006-04-12 17:46  Giuseppe Martino <denever@users.sourceforge.net>
 
 	* include/blocks.hh, include/keyer.hh, include/koch.hh,
-	  include/qrz.hh, include/textfile.hh, src/blocks.cc, 
+	  include/qrz.hh, include/textfile.hh, src/blocks.cc,
 	  src/menu.cc: Fixed to be gcc-4.2 compliant
 
 2006-03-06 21:56  Giuseppe Martino <denever@users.sourceforge.net>
@@ -276,8 +282,8 @@
 
 2005-10-27 23:31  Giuseppe Martino <denever@users.sourceforge.net>
 
-	* THANKS, bootstrap, configure.ac: Fixed bootstrap.sh adding mkdir config 
-		                           Removed blank rows in THANKS
+	* THANKS, bootstrap, configure.ac: Fixed bootstrap.sh adding mkdir config
+					   Removed blank rows in THANKS
 
 2005-10-27 10:25  Giuseppe Martino <denever@users.sourceforge.net>
 
@@ -488,20 +494,20 @@
 
 	* src/Makefile.am: Removed README.sources from extradist
 	* aldo-0.7.0 released
-	
+
 2005-10-07 12:05  Giuseppe Martino <denever@users.sourceforge.net>
 
 	* NEWS: Updated News file
 
 2005-10-07 11:06  Giuseppe Martino <denever@users.sourceforge.net>
 
-	* ChangeLog, README: Updated ChangeLog 
+	* ChangeLog, README: Updated ChangeLog
 	  Removed from README instructions to configure soundcard
-	
+
 2005-10-06 11:41  Giuseppe Martino <denever@users.sourceforge.net>
 
 	* src/README.sources: Removed empty unused file
-	
+
 2005-10-04 20:11  Giuseppe Martino <denever@users.sourceforge.net>
 
 	* include/dialog.h: Fixed a bug of default support in dialog
@@ -513,9 +519,9 @@
 2005-10-03 21:11  Giuseppe Martino <denever@users.sourceforge.net>
 
 	* ChangeLog, include/astream.h, include/audioexcep.h,
-	  src/astream.cpp: 
-	  Updated ChangeLog 
-	  Used AudioException in astream.* 
+	  src/astream.cpp:
+	  Updated ChangeLog
+	  Used AudioException in astream.*
 	  Rewrited AudioException
 
 2005-10-03 18:23  Giuseppe Martino <denever@users.sourceforge.net>
@@ -525,7 +531,7 @@
 2005-10-03 17:35  Giuseppe Martino <denever@users.sourceforge.net>
 
 	* ChangeLog, THANKS, include/dialog.h, src/koch_exc.cpp,
-	  src/menu.cpp, src/resources.h, src/setup.cpp: 
+	  src/menu.cpp, src/resources.h, src/setup.cpp:
 	   ChangeLog THANKS Updated
 
 	   Added default choice support
@@ -543,7 +549,7 @@
 	* debian/control, src/setup.cpp:
 
 	  Removed build-depend on libreadline5-dev
-	  
+
 	  Changed description
 
 	  Rewrited update_option function
@@ -551,7 +557,7 @@
 2005-09-25 15:53  Giuseppe Martino <denever@users.sourceforge.net>
 
 	* configure.ac, include/dialog.h, src/menu.cpp:
-	  
+
 	  Removed libreadline use
 
 2005-09-25 13:43  Giuseppe Martino <denever@users.sourceforge.net>
@@ -577,7 +583,7 @@
 
 2005-09-25 11:44  Giuseppe Martino <denever@users.sourceforge.net>
 
-	* include/keyer.h:  
+	* include/keyer.h:
 
 	  Fixed a typo in keyer constructor declaration
 
@@ -592,7 +598,7 @@
 2005-09-20 21:31  Giuseppe Martino <denever@users.sourceforge.net>
 
 	* include/astream.h:
-	  
+
 	  Added HAVE_AO_H checking befor include ao/ao.h
 
 2005-09-20 21:26  Giuseppe Martino <denever@users.sourceforge.net>
@@ -636,7 +642,7 @@
 
 2005-09-20 20:06  Giuseppe Martino <denever@users.sourceforge.net>
 
-	* include/Makefile.am, src/Makefile.am:  
+	* include/Makefile.am, src/Makefile.am:
 
 	   Added audioworkspace.h to noinst_HEADERS
 
@@ -654,19 +660,19 @@
 	  src/astream.cpp, src/classic.cpp, src/classic_exc.cpp,
 	  src/keyer.cpp, src/koch_exc.cpp, src/qrz_exc.cpp,
 	  src/textfile_exc.cpp, src/wave.cpp:
-	  
+
 	  Added checks for libao
 	  Removed checks for OSS headers
 
 	  Installed new libaudiostream using libao
 
 	  Changed Keyer constructor arguments removed oastream arg\
-	  with audioworkspace arg 
+	  with audioworkspace arg
 	  Removed Keyer::sample_rate()
 	  Removed Keyer::sample_size()
 
-	  Changed sample_type from double to char 
-	  Removed Wave::Wave() 
+	  Changed sample_type from double to char
+	  Removed Wave::Wave()
 	  Added Wave::Wave(size_type, sample_buffer_pointer)
 	  Removed SineWave and Pause
 
@@ -696,8 +702,8 @@
 
 2005-09-15 09:36  Giuseppe Martino <denever@users.sourceforge.net>
 
-	* include/Makefile.am:  
-	  Changed include_HEADERS in noinst_include_HEADERS 
+	* include/Makefile.am:
+	  Changed include_HEADERS in noinst_include_HEADERS
 	  to avoid installation of include/*.h
 
 2005-09-14 21:03  Giuseppe Martino <denever@users.sourceforge.net>
@@ -713,7 +719,7 @@
 
 2005-09-13 10:37  Giuseppe Martino <denever@users.sourceforge.net>
 
-	* ChangeLog, NEWS, VERSION: Switched to 0.6.11 version 
+	* ChangeLog, NEWS, VERSION: Switched to 0.6.11 version
 	  Updated ChangeLog NEWS VERSION
 
 2005-09-13 00:45  Giuseppe Martino <denever@users.sourceforge.net>
@@ -723,13 +729,13 @@
 
 2005-09-13 00:34  Giuseppe Martino <denever@users.sourceforge.net>
 
-	* configure.ac, debian/control, src/Makefile.am: 
+	* configure.ac, debian/control, src/Makefile.am:
 	  Removed unuseful build-depend on automake1.9
-	  Changed to version 0.6.11 
+	  Changed to version 0.6.11
 	  Added to distro README.Sources
 
 0.6.11	Mon 12 Sep 2005 Giuseppe Martino <denever@users.sourceforge.net>
-	Added man page file in top source dir aldo.1	
+	Added man page file in top source dir aldo.1
 	Added readline.m4 in config/
 
 	Moved librandom/*.h in include/
@@ -757,14 +763,14 @@
 	In configure.ac removed lib*/Makefile from AC_CONFIG_FILES
 	In configure.ac added include/Makefile in AC_CONFIG_FILES
 
-	Fixed dialog.h and menu.cpp removing bogus use of cin and char*	
-	
+	Fixed dialog.h and menu.cpp removing bogus use of cin and char*
+
 0.6.10	Mon 12 Sep 2005 Giuseppe Martino <denever@users.sourceforge.net>
 	Version burned
-	
+
 0.6.9	Mon 12 Sep 2005 Giuseppe Martino <denever@users.sourceforge.net>
 	Version burned
-0.6.8   
+0.6.8
 	Sat 3 Sep 2005 Bob Harrington <rharring@iee.org>
 	Added Makefile.am
 	Added Makefile.in
@@ -776,7 +782,7 @@
 	Added libdatafile/Makefile.am
 	Added libkeyer/Makefile.am
 	Added libmenus/Makefile.am
-	In librandom/random.h removed from Random class: 
+	In librandom/random.h removed from Random class:
 	void randomize();
 	Random(unsigned long seed);
 	int ToC();
@@ -789,7 +795,7 @@
 	In librandom/random.cpp changed:
 	Random::integer(int min, int max) to use rand() from stdlib
 	In libexercise/classic.cpp Classic::randstring removed weights
-	
+
 	Wed 7 Sep 2005 Giuseppe Martino <denever@users.sourceforge.net>
 	Writed ChangeLog file
 	Fixed THANKS file
