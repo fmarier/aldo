@@ -259,7 +259,8 @@ void OnResetDefault()
     sec_it koch_sec = fileconf.section("Koch");
 
     koch_sec->add_option("Chars");
-    koch_sec->option("Chars")->set("eishtmoawjuvndbgrplfkcyqzx0123456789");
+    // Suggested sequence from http://www.qsl.net/kb5wck/super.html
+    koch_sec->option("Chars")->set("kmrsuaptlowi.njef0y,vg5/q9zh38b?427c1d6x");
 
     koch_sec->add_option("StringsNumber");
     koch_sec->option("StringsNumber")->set(15);
