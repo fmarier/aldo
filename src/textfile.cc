@@ -54,10 +54,10 @@ TextFile::TextFile(std::string filename):
 	    m_strings += tmp_string;
 	    m_strings += "|";
 	    tmp_string.clear();
-	}
-
-	if(isalnum(ch))
+	} else {
+	  if(isalnum(ch) || ispunct(ch))
 	    tmp_string += ch;
+        }
     }
     
     if(!tmp_string.empty())

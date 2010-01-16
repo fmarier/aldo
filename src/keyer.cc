@@ -30,21 +30,39 @@ using namespace libkeyer;
 using namespace libaudiostream;
 using namespace std;
 
-// Scrivere qui qualcosa che spieghi...
-
 typedef unsigned int morse_symbol;
 
+// the first two nybles are the dits/dahs 1 for a dit, 0 for a dah, the last nyble is the number of dits & dahs
 static const morse_symbol map[] = 
 {
-// Letters
+// Letters from map[0] to map[25]
     0x8002, 0x7004, 0x5004, 0x6003, 0x8001, 0xD004, 0x2003,
     0xF004, 0xC002, 0x8004, 0x4003, 0xB004, 0x0002, 0x4002,
     0x0003, 0x9004, 0x2004, 0xA003, 0xE003, 0x0001, 0xC003,
     0xE004, 0x8003, 0x6004, 0x4004, 0x3004,
-   
-// Numbers in morse code from map[26]
+// Numbers from map[26] to map[35]
     0x0005, 0x8005, 0xC005, 0xE005, 0xF005, 0xF805, 0x7805,
-    0x3805, 0x1805, 0x0805
+    0x3805, 0x1805, 0x0805,
+// punctuation from map[36] to map[52]
+    0x5006, // !  -.-.--
+    0xB406, // "  .-..-.
+    0xA805, // &  .-...
+    0x8406, // '  .----.
+    0x4805, // (  -.--.
+    0x4806, // )  -.--.-
+    0xA805, // +  .-.-.
+    0x3006, // ,  --..--
+    0x7806, // -  -....-
+    0xA806, // .  .-.-.-
+    0x6805, // /  -..-.
+    0x1C06, // :  ---...
+    0x5406, // ;  -.-.-.
+    0x7005, // =  -...-
+    0xCF06, // ?  ..--.. (seems to be playing as ..--.-, which is wrong!)
+    0x9406, // @  .--.-.
+    0xC806, // _  ..--.-
+    0,0,0,0,
+    0xFF08
 };
 
 Keyer::Keyer(AudioWorkSpace& aws, unsigned int speed, unsigned int ch, unsigned int wd, unsigned int d, unsigned int l)
@@ -99,7 +117,7 @@ void Keyer::play(unsigned int n)
 
 Keyer& Keyer::operator<<(const morse_symbol& input)
 {
-    unsigned int data = input & 0xF800;
+    unsigned int data = input & 0xFF00;
     unsigned int size = input & 0x000F;
     
     while(size != 0)
@@ -121,13 +139,47 @@ Keyer& Keyer::operator<<(const morse_symbol& input)
 Keyer& Keyer::operator<<(unsigned char ch)
 {
     if( (ch > 96) && (ch < 123))
-	ch -= 97;
-    
-    if( (ch >47) && (ch < 58))
-	ch -= 22;               // -48 + 26 = -22
+    {
+        // lower case characters
+        ch -= 97;
+    }
+    else if( (ch > 64) && (ch < 91))
+    {
+        // upper case characters
+        ch -= 65;
+    }
+    else if( (ch >47) && (ch < 58))
+    {
+        // digits
+        ch -= 22;               // -48 + 26 = -22
+    }
+    else
+    {
+        // punctuation
+        switch( ch ) {
+            case 33: ch = 36; break; // !
+            case 34: ch = 37; break; // "
+            case 38: ch = 38; break; // &
+            case 39: ch = 39; break; // '
+            case 40: ch = 40; break; // (
+            case 41: ch = 41; break; // )
+            case 43: ch = 42; break; // +
+            case 44: ch = 43; break; // ,
+            case 45: ch = 44; break; // -
+            case 46: ch = 45; break; // .
+            case 47: ch = 46; break; // /
+            case 58: ch = 47; break; // :
+            case 59: ch = 48; break; // ;
+            case 61: ch = 49; break; // =
+            case 63: ch = 50; break; // ?
+            case 64: ch = 51; break; // @
+            case 95: ch = 52; break; // _
+            default: ch = 255; break; // no morse for this character
+        }
+    }
 
-    if(ch < 36) // bound of array
-	*this<<morse_symbol(map[ch]);
+    if(ch != 255)
+        *this<<morse_symbol(map[ch]);
 
     return *this;
 }
