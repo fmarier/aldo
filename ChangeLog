@@ -1,9 +1,14 @@
+2012-03-31 13:42 Giuseppe Martino <denever@users.sourceforge.net>
+	* Added suggestion from Hannes Jochriem to print chars before koch
+	* Added patch from Jeremy W. Sherman to fix crash due to changes in libao
+	* Relased aldo 0.7.7
+	
 2009-01-16 17:42 Giuseppe Martino <denever@users.sourceforge.net>
 	* Added soundcard selection patch from Corey Minyard.
 	* Added a patch from Sam "SammytheSnake" Penny that adds support to upper-case and punctuation characters
 	* Added patch from Corey Minyard that changes default koch sequence
 	* Released aldo 0.7.6
-	
+
 2007-11-05 10:00 Giuseppe Martino <denever@users.sourceforge.net>
 
 	* Released aldo 0.7.5
