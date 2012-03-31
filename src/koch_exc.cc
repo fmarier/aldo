@@ -78,7 +78,7 @@ void OnKoch()
 	cout<<msg_start<<endl;
 
 	cout<<"Letters in lesson: ";
-	typedef std::list< std::string >::const_iterator c_str;
+	typedef std::string::const_iterator c_str;
 	for(c_str cit = chars.begin(); cit != chars.end(); cit++)
 	    cout<<*cit<<" ";
 	cout<<endl;
