@@ -13,4 +13,4 @@ aldo_SOURCES = astream.cc  blocks.cc datafile.cc koch_exc.cc menu.cc qrz.cc rand
 		check.cc blocks_exc.cc keyer.cc main.cc option.cc qrz_exc.cc section.cc textfile.cc wave.cc\
 		audioworkspace.cc koch.cc
 aldo_CXXFLAGS = -ansi -Wall -pedantic
-INCLUDES = -I$(top_srcdir)/include
+AM_CPPFLAGS = -I$(top_srcdir)/include

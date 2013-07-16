@@ -1,10 +1,10 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ(2.59)
+AC_PREREQ([2.59])
 AC_INIT([aldo], [0.7.7], [Giuseppe Martino denever@users.sf.net])
 AC_CONFIG_AUX_DIR(config)
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADER([config.h])
 AM_INIT_AUTOMAKE([dist-bzip2])
 
 CPPFLAGS="-I${includedir}"
@@ -17,7 +17,7 @@ AC_PROG_INSTALL
 #AC_PROG_RANLIB
 
 # Checks for header files.
-AC_HEADER_STDC	    
+AC_HEADER_STDC
 AC_CHECK_LIB(ao, main)
 AC_CHECK_HEADERS(ao/ao.h, [], [echo "Error! You need to have libao (www.xiph.org/ao) around.";exit -1])
 
