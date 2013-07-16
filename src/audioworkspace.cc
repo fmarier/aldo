@@ -105,7 +105,7 @@ oastream AudioWorkSpace::create_output_stream()
 {
     ao_sample_format format;
     
-    memset(&format, '0', sizeof(format));
+    memset(&format, 0, sizeof(format));
     format.bits = m_bits;
     format.channels = m_channels;
     format.rate = m_sample_rate;
